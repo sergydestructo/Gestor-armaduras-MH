@@ -17,44 +17,55 @@ public class ArmorSet {
 
 
 
-    
+    // Getters, Setters and Overrides //
 
-    // Getters and Overrides //
     public String getWeapon() {
         return weapon;
     }
-
-
 
     public String getHeadArmor() {
         return headArmor;
     }
 
-
-
     public String getChestArmor() {
         return chestArmor;
     }
-
-
 
     public String getArmsArmor() {
         return armsArmor;
     }
 
-
-
     public String getWeistArmor() {
         return weistArmor;
     }
-
-
 
     public String getLegArmor() {
         return legArmor;
     }
 
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
 
+    public void setHeadArmor(String headArmor) {
+        this.headArmor = headArmor;
+    }
+
+    public void setChestArmor(String chestArmor) {
+        this.chestArmor = chestArmor;
+    }
+
+    public void setArmsArmor(String armsArmor) {
+        this.armsArmor = armsArmor;
+    }
+
+    public void setWeistArmor(String weistArmor) {
+        this.weistArmor = weistArmor;
+    }
+
+    public void setLegArmor(String legArmor) {
+        this.legArmor = legArmor;
+    }
 
 @Override
 
@@ -66,4 +77,4 @@ public class ArmorSet {
         + "\nCintura: " + weistArmor
         + "\nPies: " + legArmor;
     }
-}
+}    
