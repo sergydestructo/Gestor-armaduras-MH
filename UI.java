@@ -13,7 +13,7 @@ public class UI {
         System.out.println("Bienvenido al gestor de armaduras más pocho de la historia. ¿Qué deseas hacer?:");
         
         while(true) {
-            System.out.println("1) Añadir un set. \n2) Eliminar un set. \n3) Comprobar sets creados. \n4) Salir.");
+            System.out.println("1) Añadir un set. \n2) Eliminar un set. \n3) Comprobar sets creados. \n4) Modificar un set. \n5) Salir.");
 
             int action = Integer.valueOf(scan.nextLine());
 
@@ -37,15 +37,23 @@ public class UI {
                     System.out.print("Name your set: ");
                     String setName = scan.nextLine();
                     setList.addSet(setName, set);
-                    
-                    System.out.println("Set added!");
+             
                     break;
                     
                 case 2:
-                    // Eliminar set //
+                    System.out.print("Type set's name: ");
+                    String deletedSet = scan.nextLine();
+                    setList.deleteSet(deletedSet);
+                    break;
                 case 3:
                     // Comprobar set //
+                    System.out.print("Type set's name: ");
+                    String checkedSet = scan.nextLine();
+                    setList.checkSet(checkedSet);
+                    break;
                 case 4:
+                    // Modificar set //
+                case 5:
                     System.out.println("¡Hasta la próxima!");
                     System.exit(0);
                 default:

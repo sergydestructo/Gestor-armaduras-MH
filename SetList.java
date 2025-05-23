@@ -9,22 +9,42 @@ public class SetList {
     }
 
 
-    // Creation, deletion and modification of stored sets //
+    // Creation, deletion, checking and modification of stored sets //
 
     public void addSet(String setName, ArmorSet armorSet) {
+        setName = sanitizeString(setName);
         sets.put(setName, armorSet);
+        System.out.println("Set " + setName + " created!");
     }
 
     public void deleteSet(String setName) {
-        sets.remove(setName);
+        setName = sanitizeString(setName);
+        if (!(sets.containsKey(setName))) {
+            System.out.println("No sets exists with that name");
+        } else {
+            sets.remove(setName);
+            System.out.println("Set " + setName + " deleted!");
+        };
+    }
+
+    public void checkSet(String setName) {
+        setName = sanitizeString(setName);
+        if(!(sets.containsKey(setName))) {
+            System.out.println("No sets exists with that name");
+        } else {
+            System.out.println("Current set: " + setName);
+            System.out.println(sets.get(setName).toString());
+        }
     }
 
     public void modifySet(String setName, String modifiedSlot, String modifier) {
-        ArmorSet modifiedSet = sets.get(setName);
-        
+    }
 
-        
+    // Class methods //
 
+    public static String sanitizeString(String string) {
+        string = string.toLowerCase();
+        return string.trim();
     }
 
     

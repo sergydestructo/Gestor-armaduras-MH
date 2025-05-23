@@ -70,11 +70,11 @@ public class ArmorSet {
 @Override
 
     public String toString() {
-        return "Arma: " + weapon
-        + "\nCabeza: " + headArmor
-        + "\nPecho: " + chestArmor
-        + "\nBrazos: " + armsArmor
-        + "\nCintura: " + weistArmor
-        + "\nPies: " + legArmor;
+        return "Weapon: " + weapon
+        + "\nHead: " + headArmor
+        + "\nChest: " + chestArmor
+        + "\nArms: " + armsArmor
+        + "\nWeist: " + weistArmor
+        + "\nLegs: " + legArmor;
     }
 }    
