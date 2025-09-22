@@ -19,12 +19,8 @@ public class SetList {
 
     public void deleteSet(String setName) {
         setName = sanitizeString(setName);
-        if (!(sets.containsKey(setName))) {
-            System.out.println("No sets exists with that name");
-        } else {
-            sets.remove(setName);
-            System.out.println("Set " + setName + " deleted!");
-        }
+        sets.remove(setName);
+        System.out.println("Set " + setName + " deleted!");
     }
 
     public int checkSet(String setName) {
@@ -40,6 +36,7 @@ public class SetList {
     }
 
     public void modifySet(String setName, int modifiedSlot, String modifier) {
+        setName = sanitizeString(setName);
         ArmorSet modifiedSet = sets.get(setName);
         switch (modifiedSlot) {
             case 1 -> modifiedSet.setWeapon(modifier);

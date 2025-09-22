@@ -77,6 +77,12 @@ public class UI {
                             case 2:
                                 System.out.print("Are you sure you want to the delete the set " + checkedSet + "? (Y/n): ");
                                 String confirmation = scan.nextLine();
+
+                                if (confirmation.equals("Y") || confirmation.equals("y") || confirmation.equals("") ) {
+                                    setList.deleteSet(checkedSet);
+                                    addSpace();
+                                }
+                                break;
                                 
                             // Volver al menú principal    
                             case 3:
