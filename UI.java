@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class UI {
     private final Scanner scan;
-    private SetList setList; 
+    private final SetList setList;
 
     public UI(Scanner scanner, SetList setList) {
         this.scan = scanner;
@@ -11,14 +11,17 @@ public class UI {
 
     public void start() {
         System.out.println("Bienvenido al gestor de armaduras más pocho de la historia. ¿Qué deseas hacer?:");
+        addSpace();
         
         while(true) {
-            System.out.println("1) Añadir un set. \n2) Eliminar un set. \n3) Comprobar sets creados. \n4) Modificar un set. \n5) Salir.");
+            System.out.println("1) Create a New Set. \n2) Check Created Sets. \n3) Exit.");
+            addSpace();
 
-            int action = Integer.valueOf(scan.nextLine());
+            int action = Integer.parseInt(scan.nextLine());
 
             switch (action) {
                 case 1:
+                    addSpace();
                     System.out.print("WEAPON: ");
                     String weaponSlot = scan.nextLine();
                     System.out.print("HEAD: ");
@@ -27,45 +30,55 @@ public class UI {
                     String chestSlot = scan.nextLine();
                     System.out.print("ARMS: ");
                     String armsSlot = scan.nextLine();
-                    System.out.print("WEIST: ");
-                    String weistSlot = scan.nextLine();
+                    System.out.print("WAIST: ");
+                    String waistSlot = scan.nextLine();
                     System.out.print("LEGS: ");
                     String legsSlot = scan.nextLine();
 
-                    ArmorSet set = new ArmorSet(weaponSlot, headSlot, chestSlot, armsSlot, weistSlot, legsSlot);
+                    ArmorSet set = new ArmorSet(weaponSlot, headSlot, chestSlot, armsSlot, waistSlot, legsSlot);
 
                     System.out.print("Name your set: ");
                     String setName = scan.nextLine();
+                    addSpace();
                     setList.addSet(setName, set);
+                    addSpace();
              
                     break;
                     
                 case 2:
-                    System.out.print("Type set's name: ");
-                    String deletedSet = scan.nextLine();
-                    setList.deleteSet(deletedSet);
-                    break;
-                case 3:
                     // Comprobar set //
                     System.out.print("Type set's name: ");
                     String checkedSet = scan.nextLine();
+                    addSpace();
                     int checkedStatus = setList.checkSet(checkedSet);
-                    
+                    addSpace();
+
                     // Opciones de modificación de Set //
                     if (checkedStatus == 0) {
-                        System.out.print("1) Modify Set. \n2) Delete Set. \n3) Go Back.");
-                        int nestedAction = scan.nextInt();
+                        System.out.println("1) Modify Set. \n2) Delete Set. \n3) Go Back.");
+                        addSpace();
+                        action = Integer.parseInt(scan.nextLine());
 
-                    // ESTO ESTA ROTO Y NO FUNCA. Al elegir un slot de armadura (3, por ejemplo) salta al case 2, y borra completamente los datos de el slot elegido y todos los siguientes.
-                        switch (nestedAction) {
+                        switch (action) {
+                            // Modificar Set
                             case 1:
-                                System.out.print("1) Weapon. \n2) Head. \n3) Chest. \n4) Arms. \n5) Weist. \n6) Legs.");
-                                int changeSlot = scan.nextInt();
+                                addSpace();
+                                System.out.println("1) Weapon. \n2) Head. \n3) Chest. \n4) Arms. \n5) Waist. \n6) Legs.");
+                                addSpace();
+                                action = Integer.parseInt(scan.nextLine());
                                 System.out.print("Name of the new piece?: ");
                                 String newPiece = scan.nextLine();
-                                setList.modifySet(checkedSet, changeSlot, newPiece);
+                                setList.modifySet(checkedSet, action, newPiece);
+                                addSpace();
+                                System.out.println("Set modified!");
+                                addSpace();
+                                break;
+                            // Eliminar Set    
                             case 2:
-                                System.out.print("NOT IMPLEMENTED");
+                                System.out.print("Are you sure you want to the delete the set " + checkedSet + "? (Y/n): ");
+                                String confirmation = scan.nextLine();
+                                
+                            // Volver al menú principal    
                             case 3:
                                 break;
                         }
@@ -73,12 +86,7 @@ public class UI {
                     }
 
                     break;
-                case 4:
-                    // Modificar set //
-                    //System.out.print("Type set's name: ");
-                    //String modifiedSet = scan.nextLine();
-                    
-                case 5:
+                case 3:
                     System.out.println("¡Hasta la próxima!");
                     System.exit(0);
                 default:
@@ -86,6 +94,13 @@ public class UI {
             }
 
         }
+
+    }
+
+    public void addSpace() {
+        System.out.println("");
+        System.out.println("===============================================");
+        System.out.println("");
 
     }
 }

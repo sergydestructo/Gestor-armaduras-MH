@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 
 public class SetList {
-    private HashMap<String, ArmorSet> sets;
+    private final HashMap<String, ArmorSet> sets;
 
     public SetList() {
         this.sets = new HashMap<>();
@@ -24,7 +24,7 @@ public class SetList {
         } else {
             sets.remove(setName);
             System.out.println("Set " + setName + " deleted!");
-        };
+        }
     }
 
     public int checkSet(String setName) {
@@ -42,18 +42,12 @@ public class SetList {
     public void modifySet(String setName, int modifiedSlot, String modifier) {
         ArmorSet modifiedSet = sets.get(setName);
         switch (modifiedSlot) {
-            case 1: 
-                modifiedSet.setWeapon(modifier);
-            case 2:
-                modifiedSet.setHeadArmor(modifier);
-            case 3:
-                modifiedSet.setChestArmor(modifier);
-            case 4:
-                modifiedSet.setArmsArmor(modifier);
-            case 5:
-                modifiedSet.setWeistArmor(modifier);
-            case 6:
-                modifiedSet.setLegArmor(modifier);
+            case 1 -> modifiedSet.setWeapon(modifier);
+            case 2 -> modifiedSet.setHeadArmor(modifier);
+            case 3 -> modifiedSet.setChestArmor(modifier);
+            case 4 -> modifiedSet.setArmsArmor(modifier);
+            case 5 -> modifiedSet.setWaistArmor(modifier);
+            case 6 -> modifiedSet.setLegArmor(modifier);
         }
     }
 

@@ -3,15 +3,15 @@ public class ArmorSet {
     private String headArmor;
     private String chestArmor;
     private String armsArmor;
-    private String weistArmor;
+    private String waistArmor;
     private String legArmor;
 
-    public ArmorSet(String weapon, String headArmor, String chestArmor, String armsArmor, String weistArmor, String legArmor) {
+    public ArmorSet(String weapon, String headArmor, String chestArmor, String armsArmor, String waistArmor, String legArmor) {
         this.weapon = weapon;
         this.headArmor = headArmor;
         this.chestArmor = chestArmor;
         this.armsArmor = armsArmor;
-        this.weistArmor = weistArmor;
+        this.waistArmor = waistArmor;
         this.legArmor = legArmor;
     }
 
@@ -35,8 +35,8 @@ public class ArmorSet {
         return armsArmor;
     }
 
-    public String getWeistArmor() {
-        return weistArmor;
+    public String getWaistArmor() {
+        return waistArmor;
     }
 
     public String getLegArmor() {
@@ -59,8 +59,8 @@ public class ArmorSet {
         this.armsArmor = armsArmor;
     }
 
-    public void setWeistArmor(String weistArmor) {
-        this.weistArmor = weistArmor;
+    public void setWaistArmor(String waistArmor) {
+        this.waistArmor = waistArmor;
     }
 
     public void setLegArmor(String legArmor) {
@@ -74,7 +74,7 @@ public class ArmorSet {
         + "\nHead: " + headArmor
         + "\nChest: " + chestArmor
         + "\nArms: " + armsArmor
-        + "\nWeist: " + weistArmor
+        + "\nWaist: " + waistArmor
         + "\nLegs: " + legArmor;
     }
 }    
