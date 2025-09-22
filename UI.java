@@ -49,10 +49,35 @@ public class UI {
                     // Comprobar set //
                     System.out.print("Type set's name: ");
                     String checkedSet = scan.nextLine();
-                    setList.checkSet(checkedSet);
+                    int checkedStatus = setList.checkSet(checkedSet);
+                    
+                    // Opciones de modificación de Set //
+                    if (checkedStatus == 0) {
+                        System.out.print("1) Modify Set. \n2) Delete Set. \n3) Go Back.");
+                        int nestedAction = scan.nextInt();
+
+                    // ESTO ESTA ROTO Y NO FUNCA. Al elegir un slot de armadura (3, por ejemplo) salta al case 2, y borra completamente los datos de el slot elegido y todos los siguientes.
+                        switch (nestedAction) {
+                            case 1:
+                                System.out.print("1) Weapon. \n2) Head. \n3) Chest. \n4) Arms. \n5) Weist. \n6) Legs.");
+                                int changeSlot = scan.nextInt();
+                                System.out.print("Name of the new piece?: ");
+                                String newPiece = scan.nextLine();
+                                setList.modifySet(checkedSet, changeSlot, newPiece);
+                            case 2:
+                                System.out.print("NOT IMPLEMENTED");
+                            case 3:
+                                break;
+                        }
+
+                    }
+
                     break;
                 case 4:
                     // Modificar set //
+                    //System.out.print("Type set's name: ");
+                    //String modifiedSet = scan.nextLine();
+                    
                 case 5:
                     System.out.println("¡Hasta la próxima!");
                     System.exit(0);

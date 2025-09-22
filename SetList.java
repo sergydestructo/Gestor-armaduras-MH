@@ -27,18 +27,37 @@ public class SetList {
         };
     }
 
-    public void checkSet(String setName) {
+    public int checkSet(String setName) {
         setName = sanitizeString(setName);
         if(!(sets.containsKey(setName))) {
             System.out.println("No sets exists with that name");
+            return 1;
         } else {
             System.out.println("Current set: " + setName);
             System.out.println(sets.get(setName).toString());
+            return 0;
         }
     }
 
-    public void modifySet(String setName, String modifiedSlot, String modifier) {
+    public void modifySet(String setName, int modifiedSlot, String modifier) {
+        ArmorSet modifiedSet = sets.get(setName);
+        switch (modifiedSlot) {
+            case 1: 
+                modifiedSet.setWeapon(modifier);
+            case 2:
+                modifiedSet.setHeadArmor(modifier);
+            case 3:
+                modifiedSet.setChestArmor(modifier);
+            case 4:
+                modifiedSet.setArmsArmor(modifier);
+            case 5:
+                modifiedSet.setWeistArmor(modifier);
+            case 6:
+                modifiedSet.setLegArmor(modifier);
+        }
     }
+
+
 
     // Class methods //
 
