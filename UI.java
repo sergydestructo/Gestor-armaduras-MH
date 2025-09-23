@@ -60,8 +60,7 @@ public class UI {
                         action = Integer.parseInt(scan.nextLine());
 
                         switch (action) {
-                            // Modificar Set
-                            case 1:
+                            case 1 -> {
                                 addSpace();
                                 System.out.println("1) Weapon. \n2) Head. \n3) Chest. \n4) Arms. \n5) Waist. \n6) Legs.");
                                 addSpace();
@@ -72,9 +71,8 @@ public class UI {
                                 addSpace();
                                 System.out.println("Set modified!");
                                 addSpace();
-                                break;
-                            // Eliminar Set    
-                            case 2:
+                            }
+                            case 2 -> {
                                 System.out.print("Are you sure you want to the delete the set " + checkedSet + "? (Y/n): ");
                                 String confirmation = scan.nextLine();
 
@@ -82,11 +80,7 @@ public class UI {
                                     setList.deleteSet(checkedSet);
                                     addSpace();
                                 }
-                                break;
-                                
-                            // Volver al menú principal    
-                            case 3:
-                                break;
+                            }
                         }
 
                     }
